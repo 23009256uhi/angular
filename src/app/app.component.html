@@ -1,0 +1,25 @@
+<div class="app">
+  <div class="main-container">
+    <!-- Hamburger Button -->
+    <button
+      *ngIf="!isSidebarOpen"
+      class="hamburger-btn"
+      (click)="toggleSidebar()"
+    >
+      &#9776;
+    </button>
+
+    <!-- Sidebar Menu -->
+    <div class="side-menu" [ngClass]="{ open: isSidebarOpen }">
+      <app-navbar
+        [isSidebarOpen]="isSidebarOpen"
+        (toggleSidebar)="toggleSidebar()"
+      ></app-navbar>
+    </div>
+
+    <!-- Router View -->
+    <div>
+      <router-outlet />
+    </div>
+  </div>
+</div>
